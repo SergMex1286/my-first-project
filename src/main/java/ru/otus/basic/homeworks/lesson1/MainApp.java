@@ -1,4 +1,4 @@
-package ru.otus.project;
+package ru.otus.basic.homeworks.lesson1;
 
 import java.util.Scanner;
 
@@ -64,14 +64,14 @@ public class MainApp {
             }
             System.out.println();
             System.out.println("###############################################");
-      }
+        }
     }
     public static void greetings() {
         System.out.println("Hello");
         System.out.println("World");
         System.out.println("From");
         System.out.println("Java");
-        }
+    }
     public static void checkSign(int A, int B, int C){
         int result = A+B+C;
         if (result >= 0) {
