@@ -60,7 +60,7 @@ public class MainApp {
         int summResult = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 5) {
-                summResult = summResult + arr[i];
+                summResult += arr[i];
             }
         }
         printArray(arr);
@@ -81,7 +81,7 @@ public class MainApp {
         a = 0;
         b = 0;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < arr.length; i++) {
             a = a + arr[i];
         }
         for (int i = 5; i < 10; i++) {
