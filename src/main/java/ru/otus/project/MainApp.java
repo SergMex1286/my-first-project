@@ -1,110 +1,113 @@
 package ru.otus.project;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 public class MainApp {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int A, B, C, answer;
-        boolean D;
+        //первое
+        int m = 7;
+        String txt = "some text";
+        printText(m, txt);
 
-        while (true) {
+        printBreakLine();
 
-            System.out.println("===============================================");
-            System.out.println("Ведите номер процедуры соттветствующий списку: ");
-            System.out.println("(1) greetings");
-            System.out.println("(2) checkSign (A, B, C)");
-            System.out.println("(3) selectColor");
-            System.out.println("(4) compareNumbers");
-            System.out.println("(5) addOrSubtractAndPrint");
-            System.out.println("Если хотите выйти из программы введите любое другое число");
-            System.out.println("===============================================");
+        //второе
+        int[] arr  = new int[10];
+        for (int i = 0; i < 9; i++) {
+            arr[i] = (int) (Math.random() * 10);
+        }
+        summValueArrMoreThanFive(arr);
 
-            answer = scanner.nextInt();
+        printBreakLine();
 
-            System.out.println("###############################################");
-            System.out.println();
+        int[] arr4 = new int[10];
+        System.arraycopy(arr, 0, arr4, 0, arr.length);
 
-            if (answer == 1){
+        //третье
+        int[] arr2 = new int[10];
+        arr2  = arr;
+        fillArray(7, arr2);
+        printArray(arr2);
 
-                greetings();
+        printBreakLine();
 
-            } else if (answer == 2) {
+        //четвертое
+        int[] arr3 = new int[10];
+        arr3  = arr;
 
-                System.out.println("Введите число A:");
-                A = scanner.nextInt();
-                System.out.println("Введите число B:");
-                B = scanner.nextInt();
-                System.out.println("Введите число C:");
-                C = scanner.nextInt();
-                checkSign(A, B, C);
+        summValueArr(3, arr3);
 
-            } else if (answer == 3) {
+        printArray(arr3);
+        printBreakLine();
 
-                selectColor();
+        //пятое
+        //int[] arr4  = arr;
+        whichHalfIsBigger(arr4);
 
-            } else if (answer == 4) {
+    }
 
-                compareNumbers();
-
-            } else if (answer == 5) {
-
-                System.out.println("Введите значение initValue:");
-                A = scanner.nextInt();
-                System.out.println("Введите значение delta:");
-                B = scanner.nextInt();
-                System.out.println("Введите значение increment:");
-                D = scanner.nextBoolean();
-
-                addOrSubtractAndPrint(A, B, D);
-
-            } else {
-                break;
+    public static void printText(int m, String txt) {
+        for (int i = 0; i < m; i++) {
+            System.out.println(txt);
+        }
+    }
+    public static void summValueArrMoreThanFive(int @NotNull [] arr) {
+        int summResult = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 5) {
+                summResult += arr[i];
             }
-            System.out.println();
-            System.out.println("###############################################");
-      }
-    }
-    public static void greetings() {
-        System.out.println("Hello");
-        System.out.println("World");
-        System.out.println("From");
-        System.out.println("Java");
         }
-    public static void checkSign(int A, int B, int C){
-        int result = A+B+C;
-        if (result >= 0) {
+        printArray(arr);
+        System.out.println(summResult);
+    }
+    public static void fillArray(int a, int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = a;
+        }
+    }
+    public static void summValueArr(int a, int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr[i] + a;
+        }
+    }
+    public static void whichHalfIsBigger(int[] arr){
+        int a, b;
+        a = 0;
+        b = 0;
 
-            System.out.println("(A + B + C = " + result + ") Сумма положительная");
-        }else{
-            System.out.println("(A + B + C = " + result + ") Сумма отрицательная");
+        for (int i = 0; i < arr.length; i++) {
+            a = a + arr[i];
         }
-    }
-    public static void selectColor(){
-        int data = (int) (Math.random() * 30);
-        if (data >= 0 && data <= 10) {
-            System.out.println("Красный");
-        } else if (data > 10 && data <= 20) {
-            System.out.println("Желтый");
-        } else if (data > 20) {
-            System.out.println("Зеленый");
+        for (int i = 5; i < 10; i++) {
+            b = b + arr[i];
         }
-    }
-    public static void compareNumbers() {
-        int A = (int) (Math.random() * 30);
-        int B = (int) (Math.random() * 30);
-        if ( A>= B){
-            System.out.println("A("+A+") >= B("+B+")");
-        }else {
-            System.out.println("A("+A+") < B("+B+")");
+
+        if (a > b) {
+            System.out.println("сумма первой половины больше");
+        } else if (b > a) {
+            System.out.println("сумма второй половины больше");
         }
+        else {
+            System.out.println("сумма половин равна");
+        }
+
     }
-    public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
-        int result;
-        if (increment) {
-            result = initValue + delta;
-        }else {result = initValue - delta;}
-        System.out.println("Результат вычисления: " + result);
+
+    //********************************************************
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print("|"+arr[i]);
+            System.out.print("|");
+        }
+        System.out.println();
+    }
+    public static void printBreakLine(){
+        System.out.println("===========================================================");
     }
 }
