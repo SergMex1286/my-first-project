@@ -6,80 +6,116 @@ public class MainApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int A, B, C, answer;
+        int maxValue, resultSumm;
         boolean D;
 
-        while (true) {
+        int[][] arr = new int[10][10];
 
-            System.out.println("===============================================");
-            System.out.println("Ведите номер процедуры соттветствующий списку: ");
-            System.out.println("(1) greetings");
-            System.out.println("(2) checkSign (A, B, C)");
-            System.out.println("(3) selectColor");
-            System.out.println("(4) compareNumbers");
-            System.out.println("(5) addOrSubtractAndPrint");
-            System.out.println("Если хотите выйти из программы введите любое другое число");
-            System.out.println("===============================================");
+        fillArr(arr);
 
-            answer = scanner.nextInt();
 
-            System.out.println("###############################################");
-            System.out.println();
+        resultSumm = sumOfPositiveElements(arr);
+        System.out.println(resultSumm);
 
-            if (answer == 1){
+        printArray(arr);
 
-                greetings();
+        printSqure(10);
 
-            } else if (answer == 2) {
+        System.out.println();
 
-                System.out.println("Введите число A:");
-                A = scanner.nextInt();
-                System.out.println("Введите число B:");
-                B = scanner.nextInt();
-                System.out.println("Введите число C:");
-                C = scanner.nextInt();
-                checkSign(A, B, C);
+        diagonalZero(arr);
+        printArray(arr);
 
-            } else if (answer == 3) {
+        maxValue = findMax(arr);
+        System.out.println(maxValue);
 
-                selectColor();
+        System.out.println("Сумма значений второй строки: " + summOfSecondLine(arr));
+    }
 
-            } else if (answer == 4) {
+    public static int summOfSecondLine(int[][] array){
+        int result = 0;
 
-                compareNumbers();
+        if (array[0].length < 2){return -1;}
+        else {
+            for (int i = 1; i < array.length; i++) {
+                result =+ array[0][i];}
+        }
+        return result;
+    }
+    public static int findMax(int[][] array){
+        int result = 0;
 
-            } else if (answer == 5) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j]>result){
+                    result = array[i][j];
+                }
+            }
+        }
+        return result;
+    }
+    public static void diagonalZero(int arr[][]){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (i == j) {
+                    arr[i][j] = 0;
+                    arr[i][arr[i].length-1-j] = 0;
+                }
+            }
+        }
+    }
+    public static void printSqure(int size){
+        String[][] arr = new String[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                arr[i][j] = "*";
+            }
+        }
 
-                System.out.println("Введите значение initValue:");
-                A = scanner.nextInt();
-                System.out.println("Введите значение delta:");
-                B = scanner.nextInt();
-                System.out.println("Введите значение increment:");
-                D = scanner.nextBoolean();
-
-                addOrSubtractAndPrint(A, B, D);
-
-            } else {
-                break;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + "  ");
             }
             System.out.println();
-            System.out.println("###############################################");
-      }
+        }
+        System.out.println();
     }
-    public static void greetings() {
-        System.out.println("Hello");
-        System.out.println("World");
-        System.out.println("From");
-        System.out.println("Java");
+    public static void fillArr(int arr[][]){
+        int x = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = x;
+                x++;
+            }
         }
-    public static void checkSign(int A, int B, int C){
-        int result = A+B+C;
-        if (result >= 0) {
+    }
+    public static int sumOfPositiveElements(int arr[][]){
+        int result = 0;
 
-            System.out.println("(A + B + C = " + result + ") Сумма положительная");
-        }else{
-            System.out.println("(A + B + C = " + result + ") Сумма отрицательная");
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > 0) {
+                    result += arr[i][j];
+                }
+
+            }
+
         }
+
+        return result;
+    }
+    public static void printArray(int arr[][]) {
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + "  ");
+                if (arr[i][j] < 10) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
     public static void selectColor(){
         int data = (int) (Math.random() * 30);
@@ -89,15 +125,6 @@ public class MainApp {
             System.out.println("Желтый");
         } else if (data > 20) {
             System.out.println("Зеленый");
-        }
-    }
-    public static void compareNumbers() {
-        int A = (int) (Math.random() * 30);
-        int B = (int) (Math.random() * 30);
-        if ( A>= B){
-            System.out.println("A("+A+") >= B("+B+")");
-        }else {
-            System.out.println("A("+A+") < B("+B+")");
         }
     }
     public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
