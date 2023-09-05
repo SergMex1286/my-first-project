@@ -36,14 +36,19 @@ public class MainApp {
         int result = 0;
 
         if (array[0].length < 2){return -1;}
-        else {
-            for (int i = 1; i < array.length; i++) {
-                result =+ array[0][i];}
-        }
+
+        for (int i = 1; i < array.length; i++) {
+            result =+ array[0][i];}
+
         return result;
     }
     public static int findMax(int[][] array){
-        int result = 0;
+        int result;
+        if (array.length > 0){
+            result = array[0][0]; }
+        else {
+            result = 0;
+        }
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -65,20 +70,15 @@ public class MainApp {
         }
     }
     public static void printSqure(int size){
-        String[][] arr = new String[size][size];
+
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                arr[i][j] = "*";
-            }
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + "  ");
+                System.out.print("*  ");
             }
             System.out.println();
         }
         System.out.println();
+
     }
     public static void fillArr(int arr[][]){
         int x = 0;
