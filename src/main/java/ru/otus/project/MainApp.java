@@ -1,12 +1,7 @@
 package ru.otus.project;
 
-import java.util.Scanner;
-
 public class MainApp {
     public static void main(String[] args) {
-
-        //User user = new User("Сергей", "Симейко", "Анатольевич", "serg-mex@yandex.ru", 1986);
-//        user.info();
 
         User[] users = {
                 new User("Сергей", "Симейко", "Анатольевич", "serg-mex@yandex.ru", 1986),
