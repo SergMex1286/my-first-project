@@ -20,6 +20,7 @@ public class User {
         System.out.println("Ф.И.О.: " + firstName + " " + lastName + " " + surname);
         System.out.println("Год рождения: " + yearBirth);
         System.out.println("E-Mail: " + email);
+        System.out.println();
 
     }
 
