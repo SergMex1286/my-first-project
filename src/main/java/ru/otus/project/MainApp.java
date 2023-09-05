@@ -4,67 +4,25 @@ import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        int A, B, C, answer;
-        boolean D;
+        //User user = new User("Сергей", "Симейко", "Анатольевич", "serg-mex@yandex.ru", 1986);
+//        user.info();
 
-        while (true) {
+        User[] users = {
+                new User("Сергей", "Симейко", "Анатольевич", "serg-mex@yandex.ru", 1986),
+                new User("Андрей", "Андреев", "Андреевич", "xxx@xxx.xxx", 1976),
+                new User("Иванов", "Иван", "Иванович", "xxx@xxx.xxx", 1996),
+                new User("Петров", "Петр", "Петрович", "xxx@xxx.xxx", 1956)
+        };
 
-            System.out.println("===============================================");
-            System.out.println("Ведите номер процедуры соттветствующий списку: ");
-            System.out.println("(1) greetings");
-            System.out.println("(2) checkSign (A, B, C)");
-            System.out.println("(3) selectColor");
-            System.out.println("(4) compareNumbers");
-            System.out.println("(5) addOrSubtractAndPrint");
-            System.out.println("Если хотите выйти из программы введите любое другое число");
-            System.out.println("===============================================");
-
-            answer = scanner.nextInt();
-
-            System.out.println("###############################################");
-            System.out.println();
-
-            if (answer == 1){
-
-                greetings();
-
-            } else if (answer == 2) {
-
-                System.out.println("Введите число A:");
-                A = scanner.nextInt();
-                System.out.println("Введите число B:");
-                B = scanner.nextInt();
-                System.out.println("Введите число C:");
-                C = scanner.nextInt();
-                checkSign(A, B, C);
-
-            } else if (answer == 3) {
-
-                selectColor();
-
-            } else if (answer == 4) {
-
-                compareNumbers();
-
-            } else if (answer == 5) {
-
-                System.out.println("Введите значение initValue:");
-                A = scanner.nextInt();
-                System.out.println("Введите значение delta:");
-                B = scanner.nextInt();
-                System.out.println("Введите значение increment:");
-                D = scanner.nextBoolean();
-
-                addOrSubtractAndPrint(A, B, D);
-
-            } else {
-                break;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i].getAge() > 40) {
+                users[i].info();
             }
-            System.out.println();
-            System.out.println("###############################################");
-      }
+        }
+
+
+
     }
     public static void greetings() {
         System.out.println("Hello");
