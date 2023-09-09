@@ -1,12 +1,12 @@
 package ru.otus.project.less11.oop2;
 
-public class Dog extends Animal {
-    public Dog(String name, int endurance, float rnSpeed, float swSpeed) {
+public class Horse extends Animal{
+    public Horse(String name, int endurance, float rnSpeed, float swSpeed) {
         super(name, endurance, rnSpeed, swSpeed);
     }
     @Override
     public float swim(int distance) {
-        int result = endurance - 2;
+        int result = endurance - 4;
 
         if (result < 0){
             System.out.println("не хватает выносливости для заплыва");
@@ -18,4 +18,5 @@ public class Dog extends Animal {
             return distance / rnSpeed;
         }
     }
+
 }
