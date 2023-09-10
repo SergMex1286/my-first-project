@@ -1,8 +1,8 @@
 package ru.otus.project.less11.oop2;
 
 public class Cat extends Animal {
-    public Cat(String name, int endurance, float rnSpeed, float swSpeed) {
-        super(name, endurance, rnSpeed, swSpeed);
+    public Cat(String name, int endurance, float runSpeed, float swimSpeed) {
+        super(name, endurance, runSpeed, swimSpeed);
     }
     @Override
     public float swim(int distance) {
