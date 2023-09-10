@@ -25,7 +25,7 @@ public class MainApp {
         someBox.setItem("отвёртка");
         someBox.info();
         someBox.setItem("молоток");
-        someBox.setOpenStatus();
+        someBox.Open();
         someBox.setItem("молоток");
         someBox.delItem();
         someBox.setItem("молоток");

@@ -45,7 +45,7 @@ public class Box {
             return;
         }
 
-        if (this.item == "пусто"){
+        if (this.item.equals("пусто")){
             this.item = item;
             this.status = false;
             System.out.println("в коробку положили предмет: " + item);
@@ -74,7 +74,7 @@ public class Box {
 
     }
 
-    public void setOpenStatus() {
+    public void Open() {
 
         this.status = true;
         System.out.println("коробка открыта");
@@ -82,7 +82,7 @@ public class Box {
 
     }
 
-    public void setCloseStatus() {
+    public void Close() {
 
         this.status = false;
         System.out.println("коробка закрыта");
