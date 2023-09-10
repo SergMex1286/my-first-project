@@ -1,4 +1,4 @@
-package ru.otus.project;
+package ru.otus.project.oldless;
 
 import java.util.Scanner;
 
